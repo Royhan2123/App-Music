@@ -68,7 +68,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(
             AuthInitial(),
           );
-          print("Berhasil Keluar ${AuthServices().clearLocalStorage()}");
         } catch (e) {
           emit(
             AuthFailed(
