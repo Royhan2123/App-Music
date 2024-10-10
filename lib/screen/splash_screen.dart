@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:application_music/login_screen.dart';
+import 'package:application_music/screen/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-          builder: (context) => const LoginScreen(),
+          builder: (context) => const OnBoardingScreen(),
         ),
         (route) => false,
       );

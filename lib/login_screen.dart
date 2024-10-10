@@ -147,9 +147,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 );
                               } else if (state is AuthFailed) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
+                                  const SnackBar(
                                     content: Text(
-                                      state.error,
+                                      "Email dan Password yang kamu masukkan salah",
                                     ),
                                     backgroundColor: Colors.red,
                                   ),
