@@ -4,16 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 TextStyle txtBlack = GoogleFonts.poppins(
   color: Colors.black,
   fontSize: 15,
+  fontWeight: FontWeight.w500,
 );
 
 TextStyle txtBlack3 = GoogleFonts.poppins(
   color: Colors.black,
   fontSize: 20,
+  fontWeight: FontWeight.w600,
 );
 
 TextStyle txtBlack2 = GoogleFonts.poppins(
   color: Colors.black,
   fontSize: 13,
+  fontWeight: FontWeight.w400,
 );
 
 TextStyle txtGrey = GoogleFonts.poppins(

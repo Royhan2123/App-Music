@@ -56,7 +56,7 @@ class AuthServices {
       throw e.toString();
     }
   }
-
+  
   Future<void> logout() async {
     try {
       final token = await getToken();

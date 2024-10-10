@@ -1,5 +1,5 @@
 import 'package:application_music/bloc/auth_bloc/auth_bloc.dart';
-import 'package:application_music/login_screen.dart';
+import 'package:application_music/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +22,7 @@ class MainActivity extends StatelessWidget {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginScreen(),
+        home: SplashScreen(),
       ),
     );
   }
