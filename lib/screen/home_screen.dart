@@ -207,6 +207,155 @@ class _ForYouState extends State<ForYou> {
         const SizedBox(
           height: 20,
         ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 280,
+                height: 140,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 280,
+                height: 140,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                ),
+              ),
+              Container(
+                width: 280,
+                height: 140,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Recently Played",
+              style: txtBlack,
+            ),
+            InkWell(
+              onTap: () {},
+              child: Text(
+                "See More",
+                style: txtBlack2.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
         
       ],
     );

@@ -1,5 +1,6 @@
 import 'package:application_music/screen/account_screen.dart';
 import 'package:application_music/screen/home_screen.dart';
+import 'package:application_music/screen/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -12,6 +13,7 @@ class BottomNavigation extends StatefulWidget {
 class _BottomNavigationState extends State<BottomNavigation> {
   final list = const [
     HomeScreen(),
+    SearchScreen(),
     AccountScreen(),
   ];
 
@@ -29,6 +31,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 Icons.home,
               ),
               label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+              ),
+              label: "Search",
             ),
             BottomNavigationBarItem(
               icon: Icon(
