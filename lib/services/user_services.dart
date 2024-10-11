@@ -1,6 +1,6 @@
 import 'package:application_music/model/users_models.dart';
+import 'package:application_music/services/auth_services.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class UserServices {
   final dio = Dio();
@@ -8,14 +8,7 @@ class UserServices {
 
   Future<UsersModels> getUser() async {
     try {
-      const storage = FlutterSecureStorage();
-
-      String? token = await storage.read(
-        key: 'token',
-      );
-      print(
-        "Token: $token",
-      );
+      final token = await AuthServices().getToken();
 
       final response = await dio.post(
         "$url/me",
@@ -27,10 +20,9 @@ class UserServices {
       );
 
       if (response.statusCode == 200 && response.data['data'] != null) {
-        print(
-          "Data yang di ambil: ${response.data}",
+        return UsersModels.fromJson(
+          response.data['data'],
         );
-        return UsersModels.fromJson(response.data['data']);
       } else {
         throw Exception(
             'Failed to load user data: ${response.data['message']}');

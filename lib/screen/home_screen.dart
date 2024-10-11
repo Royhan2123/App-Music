@@ -1,5 +1,6 @@
 import 'package:application_music/bloc/user_bloc/user_bloc.dart';
 import 'package:application_music/style/stylesheet.dart';
+import 'package:application_music/widget/card_relax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -690,6 +691,8 @@ class Relax extends StatefulWidget {
 }
 
 class _RelaxState extends State<Relax> {
+  bool isSelected = false;
+  bool play = true;
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -715,7 +718,505 @@ class _RelaxState extends State<Relax> {
           ),
         ),
         const SizedBox(
+          height: 30,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 15,
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 20,
+                ),
+                width: 288,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    15,
+                  ),
+                  color: Colors.grey.shade900,
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: 105,
+                          height: 105,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.circular(
+                              16,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Peace",
+                              style: txtWhite.copyWith(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              "22 Songs",
+                              style: txtWhite.copyWith(
+                                fontSize: 13,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      isSelected = !isSelected;
+                                    });
+                                  },
+                                  child: Icon(
+                                    isSelected
+                                        ? Icons.favorite_border_outlined
+                                        : Icons.favorite,
+                                    size: 25,
+                                    color:
+                                        isSelected ? Colors.grey : Colors.grey,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Icon(
+                                  Icons.more_vert_outlined,
+                                  size: 25,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              play = !play;
+                            });
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey,
+                            ),
+                            child: Center(
+                              child: Icon(
+                                play ? Icons.play_arrow : Icons.pause,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const CardRelax(
+                      name: 'Weigthless',
+                      title: 'Marconi Union',
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const CardRelax(
+                      name: 'Nothing It Can',
+                      title: 'Helios',
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const CardRelax(
+                      name: 'Small Memory',
+                      title: 'Jon Hopkins - Insides',
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 15,
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 20,
+                ),
+                width: 288,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    15,
+                  ),
+                  color: Colors.grey.shade900,
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: 105,
+                          height: 105,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.circular(
+                              16,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Peace",
+                              style: txtWhite.copyWith(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              "22 Songs",
+                              style: txtWhite.copyWith(
+                                fontSize: 13,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      isSelected = !isSelected;
+                                    });
+                                  },
+                                  child: Icon(
+                                    isSelected
+                                        ? Icons.favorite_border_outlined
+                                        : Icons.favorite,
+                                    size: 25,
+                                    color:
+                                        isSelected ? Colors.grey : Colors.grey,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Icon(
+                                  Icons.more_vert_outlined,
+                                  size: 25,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              play = !play;
+                            });
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey,
+                            ),
+                            child: Center(
+                              child: Icon(
+                                play ? Icons.play_arrow : Icons.pause,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const CardRelax(
+                      name: 'Weigthless',
+                      title: 'Marconi Union',
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const CardRelax(
+                      name: 'Nothing It Can',
+                      title: 'Helios',
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const CardRelax(
+                      name: 'Small Memory',
+                      title: 'Jon Hopkins - Insides',
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 20,
+                ),
+                width: 288,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    15,
+                  ),
+                  color: Colors.grey.shade900,
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: 105,
+                          height: 105,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.circular(
+                              16,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Peace",
+                              style: txtWhite.copyWith(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              "22 Songs",
+                              style: txtWhite.copyWith(
+                                fontSize: 13,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      isSelected = !isSelected;
+                                    });
+                                  },
+                                  child: Icon(
+                                    isSelected
+                                        ? Icons.favorite_border_outlined
+                                        : Icons.favorite,
+                                    size: 25,
+                                    color:
+                                        isSelected ? Colors.grey : Colors.grey,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Icon(
+                                  Icons.more_vert_outlined,
+                                  size: 25,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              play = !play;
+                            });
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey,
+                            ),
+                            child: Center(
+                              child: Icon(
+                                play ? Icons.play_arrow : Icons.pause,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const CardRelax(
+                      name: 'Weigthless',
+                      title: 'Marconi Union',
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const CardRelax(
+                      name: 'Nothing It Can',
+                      title: 'Helios',
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const CardRelax(
+                      name: 'Small Memory',
+                      title: 'Jon Hopkins - Insides',
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
           height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Relaxing",
+              style: txtBlack,
+            ),
+            InkWell(
+              onTap: () {},
+              child: Text(
+                "See More",
+                style: txtBlack2.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
