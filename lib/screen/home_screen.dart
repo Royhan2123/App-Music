@@ -1,5 +1,7 @@
+import 'package:application_music/bloc/user_bloc/user_bloc.dart';
 import 'package:application_music/style/stylesheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -58,9 +60,23 @@ class _HomeScreenState extends State<HomeScreen>
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Hi, Royhan",
-                            style: txtBlack3,
+                          BlocBuilder<UserBloc, UserState>(
+                            builder: (context, state) {
+                              if (state is UserLoading) {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              } else if (state is UserSucces) {
+                                return Text(
+                                  "Hi, ${state.user.name}",
+                                  style: txtBlack3,
+                                );
+                              }
+                              return Text(
+                                "Hello Royhan",
+                                style: txtBlack2,
+                              );
+                            },
                           ),
                           Text(
                             "How are you today",

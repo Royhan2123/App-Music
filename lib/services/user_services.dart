@@ -13,6 +13,9 @@ class UserServices {
       String? token = await storage.read(
         key: 'token',
       );
+      print(
+        "Token: $token",
+      );
 
       final response = await dio.post(
         "$url/me",
@@ -23,14 +26,14 @@ class UserServices {
         ),
       );
 
-      if (response.statusCode == 200) {
-        return UsersModels.fromJson(
-          response.data['data'],
+      if (response.statusCode == 200 && response.data['data'] != null) {
+        print(
+          "Data yang di ambil: ${response.data}",
         );
+        return UsersModels.fromJson(response.data['data']);
       } else {
         throw Exception(
-          'Failed to load user data',
-        );
+            'Failed to load user data: ${response.data['message']}');
       }
     } catch (e) {
       throw Exception(

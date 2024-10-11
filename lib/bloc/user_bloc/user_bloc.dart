@@ -9,24 +9,22 @@ part 'user_state.dart';
 class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(UserInitial()) {
     on<UserEvent>((event, emit) async {
-      if (event is UserLoadEvent) {
-        try {
-          emit(
-            UserLoading(),
-          );
-          final user = await UserServices().getUser();
-          emit(
-            UserSucces(
-              user,
-            ),
-          );
-        } catch (e) {
-          emit(
-            UserFailed(
-              e.toString(),
-            ),
-          );
-        }
+      emit(
+        UserLoading(),
+      );
+      try {
+        final user = await UserServices().getUser();
+        emit(
+          UserSucces(
+            user,
+          ),
+        );
+      } catch (e) {
+        emit(
+          UserFailed(
+            e.toString(),
+          ),
+        );
       }
     });
   }
