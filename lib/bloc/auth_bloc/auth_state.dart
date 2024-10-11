@@ -36,3 +36,7 @@ final class AuthFailed extends AuthState {
         error,
       ];
 }
+
+final class AuthAuthenticated extends AuthState {}
+
+final class AuthUnauthenticated extends AuthState {}

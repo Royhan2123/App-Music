@@ -10,72 +10,99 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
-    on<AuthEvent>((event, emit) async {
-      if (event is AuthLogin) {
-        try {
-          emit(
-            AuthLoading(),
-          );
+    on<AuthEvent>(
+      (event, emit) async {
+        if (event is AuthLogin) {
+          try {
+            emit(
+              AuthLoading(),
+            );
 
-          final AuthResponse response = await AuthServices().login(
-            event.login,
-          );
+            final AuthResponse response = await AuthServices().login(
+              event.login,
+            );
 
-          emit(
-            AuthSucces(
-              response,
-            ),
-          );
-        } catch (e) {
-          emit(
-            AuthFailed(
-              e.toString(),
-            ),
-          );
+            emit(
+              AuthSucces(
+                response,
+              ),
+            );
+          } catch (e) {
+            emit(
+              AuthFailed(
+                e.toString(),
+              ),
+            );
+          }
         }
-      }
 
-      if (event is AuthRegister) {
-        try {
-          emit(
-            AuthLoading(),
-          );
+        if (event is AuthRegister) {
+          try {
+            emit(
+              AuthLoading(),
+            );
 
-          final AuthResponse response = await AuthServices().register(
-            event.register,
-          );
+            final AuthResponse response = await AuthServices().register(
+              event.register,
+            );
 
-          emit(
-            AuthSucces(
-              response,
-            ),
-          );
-        } catch (e) {
-          emit(
-            AuthFailed(
-              e.toString(),
-            ),
-          );
+            emit(
+              AuthSucces(
+                response,
+              ),
+            );
+          } catch (e) {
+            emit(
+              AuthFailed(
+                e.toString(),
+              ),
+            );
+          }
         }
-      }
 
-      if (event is AuthLogout) {
-        try {
-          emit(
-            AuthLoading(),
-          );
-          await AuthServices().logout();
-          emit(
-            AuthInitial(),
-          );
-        } catch (e) {
-          emit(
-            AuthFailed(
-              e.toString(),
-            ),
-          );
+        if (event is AuthLogout) {
+          try {
+            emit(
+              AuthLoading(),
+            );
+            await AuthServices().logout();
+            emit(
+              AuthInitial(),
+            );
+          } catch (e) {
+            emit(
+              AuthFailed(
+                e.toString(),
+              ),
+            );
+          }
         }
-      }
-    });
+
+        if (event is AuthCheckStatus) {
+          try {
+            emit(
+              AuthLoading(),
+            );
+            String token = await AuthServices().getToken();
+
+            if (token.isNotEmpty) {
+              emit(
+                AuthAuthenticated(),
+              );
+            } else {
+              emit(
+                AuthUnauthenticated(),
+              );
+            }
+          } catch (e) {
+            emit(
+              AuthFailed(
+                e.toString(),
+              ),
+            );
+          }
+        }
+      },
+    );
   }
 }
