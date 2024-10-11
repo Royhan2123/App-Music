@@ -15,7 +15,11 @@ class AuthgetResponse {
     return AuthgetResponse(
       succes: json['succes'],
       message: json["message"],
-      data: json["data"] != null ? UsersModels.fromJson(json["data"]) : null,
+      data: json["data"] != null
+          ? UsersModels.fromJson(
+              json["data"],
+            )
+          : null,
     );
   }
 }

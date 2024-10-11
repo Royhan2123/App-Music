@@ -75,16 +75,17 @@ class _HomeScreenState extends State<HomeScreen>
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: NetworkImage(
-                              "https://avatars.githubusercontent.com/u/121564375?v=4",
+                              "https://web-portofolio-royhan.vercel.app/assets/img/hero/royhan.png",
                             ),
                             fit: BoxFit.cover,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black,
-                              blurRadius: 5,
+                              color: Colors.grey,
+                              blurRadius: 8,
                             ),
                           ],
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -665,20 +666,6 @@ class _ForYouState extends State<ForYou> {
   }
 }
 
-class Travel extends StatefulWidget {
-  const Travel({super.key});
-
-  @override
-  State<Travel> createState() => _TravelState();
-}
-
-class _TravelState extends State<Travel> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
 class Relax extends StatefulWidget {
   const Relax({super.key});
 
@@ -687,6 +674,46 @@ class Relax extends StatefulWidget {
 }
 
 class _RelaxState extends State<Relax> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(
+        20,
+      ),
+      children: [
+        body(),
+      ],
+    );
+  }
+
+  Widget body() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Today Refreshing Song Recommendation",
+          style: GoogleFonts.poppins(
+            fontSize: 18,
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+      ],
+    );
+  }
+}
+
+class Travel extends StatefulWidget {
+  const Travel({super.key});
+
+  @override
+  State<Travel> createState() => _TravelState();
+}
+
+class _TravelState extends State<Travel> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
