@@ -1,6 +1,7 @@
 import 'package:application_music/model/login_models.dart';
 import 'package:application_music/model/register_models.dart';
 import 'package:application_music/response/auth_response.dart';
+import 'package:application_music/services/auth_firebase_services.dart';
 import 'package:application_music/services/auth_services.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -94,6 +95,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 AuthUnauthenticated(),
               );
             }
+          } catch (e) {
+            emit(
+              AuthFailed(
+                e.toString(),
+              ),
+            );
+          }
+        }
+
+        if (event is AuthCheckGoogle) {
+          try {
+            emit(
+              AuthLoading(),
+            );
+
+            await AuthFirebaseServices().signInWithGoogle();
+
+            emit(
+              AuthSuccesGoogle(),
+            );
           } catch (e) {
             emit(
               AuthFailed(

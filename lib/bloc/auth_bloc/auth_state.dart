@@ -40,3 +40,7 @@ final class AuthFailed extends AuthState {
 final class AuthAuthenticated extends AuthState {}
 
 final class AuthUnauthenticated extends AuthState {}
+
+final class AuthSuccesGoogle extends AuthState {}
+
+

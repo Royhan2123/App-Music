@@ -1,7 +1,10 @@
+import 'package:application_music/bloc/auth_bloc/auth_bloc.dart';
 import 'package:application_music/login_screen.dart';
+import 'package:application_music/screen/bottom_navigation.dart';
 import 'package:application_music/style/stylesheet.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_player/video_player.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -128,34 +131,61 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           const SizedBox(
             height: 10,
           ),
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(
-                260,
-                45,
-              ),
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.cyan,
-            ),
-            onPressed: () {},
-            label: Text(
-              "Login With Google",
-              style: txtBlack.copyWith(
-                fontSize: 14,
-              ),
-            ),
-            icon: Container(
-              width: 25,
-              height: 25,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    "assets/images/google.png",
+          BlocConsumer<AuthBloc, AuthState>(
+            listener: (context, state) {
+              if (state is AuthSuccesGoogle) {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BottomNavigation()),
+                  (route) => false,
+                );
+              } else if (state is AuthFailed) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text(
+                      "Error Google Login",
+                    ),
+                    backgroundColor: Colors.red,
                   ),
-                  fit: BoxFit.cover,
+                );
+              }
+            },
+            builder: (context, state) {
+              return ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(
+                    260,
+                    45,
+                  ),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.cyan,
                 ),
-              ),
-            ),
+                onPressed: () {
+                  context.read<AuthBloc>().add(
+                        AuthCheckGoogle(),
+                      );
+                },
+                label: Text(
+                  "Login With Google",
+                  style: txtBlack.copyWith(
+                    fontSize: 14,
+                  ),
+                ),
+                icon: Container(
+                  width: 25,
+                  height: 25,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        "assets/images/google.png",
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
           const SizedBox(
             height: 10,

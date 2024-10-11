@@ -56,7 +56,7 @@ class AuthServices {
       throw e.toString();
     }
   }
-  
+
   Future<void> logout() async {
     try {
       final token = await getToken();
@@ -70,6 +70,7 @@ class AuthServices {
         );
 
         if (response.statusCode == 200) {
+          print("Error Succse : ${response.data}");
           await clearLocalStorage();
         } else {
           throw Exception(
@@ -78,6 +79,7 @@ class AuthServices {
         }
       }
     } catch (e) {
+      print("Error Logout $e");
       rethrow;
     }
   }
