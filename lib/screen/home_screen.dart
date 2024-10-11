@@ -356,7 +356,310 @@ class _ForYouState extends State<ForYou> {
             ],
           ),
         ),
-        
+        const SizedBox(
+          height: 35,
+        ),
+        Text(
+          "Mixes for you",
+          style: txtBlack,
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 35,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "From Artis You Follow",
+              style: txtBlack,
+            ),
+            InkWell(
+              onTap: () {},
+              child: Text(
+                "See More",
+                style: txtBlack2.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 35,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "New Release",
+              style: txtBlack,
+            ),
+            InkWell(
+              onTap: () {},
+              child: Text(
+                "See More",
+                style: txtBlack2.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  right: 16,
+                ),
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+              Container(
+                width: 120,
+                height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    16,
+                  ),
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
