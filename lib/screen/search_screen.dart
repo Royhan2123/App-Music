@@ -54,6 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget body() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
           height: 50,
@@ -260,6 +261,179 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ],
           ),
+        ),
+        const SizedBox(
+          height: 35,
+        ),
+        Text(
+          "Browse",
+          style: txtBlack.copyWith(
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 170,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Text(
+                  "Data 1",
+                  style: txtBlack,
+                ),
+              ),
+            ),
+            Container(
+              width: 170,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Text(
+                  "Data 1",
+                  style: txtBlack,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 170,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Text(
+                  "Data 1",
+                  style: txtBlack,
+                ),
+              ),
+            ),
+            Container(
+              width: 170,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Text(
+                  "Data 1",
+                  style: txtBlack,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 170,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Text(
+                  "Data 1",
+                  style: txtBlack,
+                ),
+              ),
+            ),
+            Container(
+              width: 170,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Text(
+                  "Data 1",
+                  style: txtBlack,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 170,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Text(
+                  "Data 1",
+                  style: txtBlack,
+                ),
+              ),
+            ),
+            Container(
+              width: 170,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Text(
+                  "Data 1",
+                  style: txtBlack,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
         ),
       ],
     );
