@@ -70,6 +70,7 @@ class AuthServices {
         );
 
         if (response.statusCode == 200) {
+          // ignore: avoid_print
           print("Error Succse : ${response.data}");
           await clearLocalStorage();
         } else {
@@ -79,7 +80,10 @@ class AuthServices {
         }
       }
     } catch (e) {
-      print("Error Logout $e");
+      // ignore: avoid_print
+      print(
+        "Error Logout $e",
+      );
       rethrow;
     }
   }

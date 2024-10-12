@@ -15,6 +15,7 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  final TextEditingController _phoneController = TextEditingController();
   late VideoPlayerController _controller;
   bool isLoading = true;
   String videoUrl = '';
@@ -153,7 +154,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             builder: (context, state) {
               return ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(260, 45),
+                  minimumSize: const Size(
+                    260,
+                    45,
+                  ),
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.cyan,
                 ),
@@ -191,7 +195,26 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               backgroundColor: Colors.white,
               foregroundColor: Colors.cyan,
             ),
-            onPressed: () {},
+            onPressed: () {
+              String phoneNumber = _phoneController.text.trim();
+
+              if (phoneNumber.isNotEmpty) {
+                BlocProvider.of<AuthBloc>(context).add(
+                  SendOtpEvent(
+                    phoneNumber: phoneNumber,
+                  ),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text(
+                      'Please enter a valid phone number,',
+                    ),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
+            },
             label: Text(
               "Login With Phone Number",
               style: txtBlack.copyWith(

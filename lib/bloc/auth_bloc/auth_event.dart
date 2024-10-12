@@ -33,10 +33,14 @@ class AuthCheckGoogle extends AuthEvent {}
 class SendOtpEvent extends AuthEvent {
   final String phoneNumber;
 
-  const SendOtpEvent({required this.phoneNumber});
+  const SendOtpEvent({
+    required this.phoneNumber,
+  });
 
   @override
-  List<Object> get props => [phoneNumber];
+  List<Object> get props => [
+        phoneNumber,
+      ];
 }
 
 // Event untuk verifikasi OTP
@@ -50,5 +54,8 @@ class VerifyOtpEvent extends AuthEvent {
   });
 
   @override
-  List<Object> get props => [verificationId, otpCode];
+  List<Object> get props => [
+        verificationId,
+        otpCode,
+      ];
 }
