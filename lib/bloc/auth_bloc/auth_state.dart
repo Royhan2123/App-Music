@@ -43,4 +43,24 @@ final class AuthUnauthenticated extends AuthState {}
 
 final class AuthSuccesGoogle extends AuthState {}
 
+class OtpSentState extends AuthState {
+  final String verificationId;
 
+  const OtpSentState({required this.verificationId});
+
+  @override
+  List<Object> get props => [verificationId];
+}
+
+// State ketika login via OTP berhasil
+class PhoneAuthSuccess extends AuthState {}
+
+// State ketika login via OTP gagal
+class PhoneAuthError extends AuthState {
+  final String error;
+
+  const PhoneAuthError({required this.error});
+
+  @override
+  List<Object> get props => [error];
+}

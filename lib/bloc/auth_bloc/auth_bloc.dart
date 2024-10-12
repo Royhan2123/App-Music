@@ -106,15 +106,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
         if (event is AuthCheckGoogle) {
           try {
-            emit(
-              AuthLoading(),
-            );
+            emit(AuthLoading());
 
-            await AuthFirebaseServices().signInWithGoogle();
+            final result = await AuthFirebaseServices().signInWithGoogle();
 
-            emit(
-              AuthSuccesGoogle(),
-            );
+            if (result != null) {
+              emit(AuthSuccesGoogle());
+            } else {
+              emit(
+                const AuthFailed(
+                  'Google sign in failed',
+                ),
+              );
+            }
           } catch (e) {
             emit(
               AuthFailed(

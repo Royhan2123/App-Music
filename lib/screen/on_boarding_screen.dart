@@ -115,12 +115,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               foregroundColor: Colors.purple,
             ),
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const LoginScreen(),
                 ),
-                (route) => false,
               );
             },
             child: Text(
@@ -142,9 +141,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 );
               } else if (state is AuthFailed) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
+                  SnackBar(
                     content: Text(
-                      "Error Google Login",
+                      state.error,
                     ),
                     backgroundColor: Colors.red,
                   ),
@@ -154,23 +153,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             builder: (context, state) {
               return ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(
-                    260,
-                    45,
-                  ),
+                  minimumSize: const Size(260, 45),
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.cyan,
                 ),
                 onPressed: () {
-                  context.read<AuthBloc>().add(
-                        AuthCheckGoogle(),
-                      );
+                  context.read<AuthBloc>().add(AuthCheckGoogle());
                 },
                 label: Text(
                   "Login With Google",
-                  style: txtBlack.copyWith(
-                    fontSize: 14,
-                  ),
+                  style: txtBlack.copyWith(fontSize: 14),
                 ),
                 icon: Container(
                   width: 25,
