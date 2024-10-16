@@ -5,7 +5,6 @@ import 'package:application_music/services/auth_firebase_services.dart';
 import 'package:application_music/services/auth_services.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -107,55 +106,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
         if (event is AuthCheckGoogle) {
           try {
-            emit(AuthLoading());
+            emit(
+              AuthLoading(),
+            );
 
-            final result = await AuthFirebaseServices().signInWithGoogle();
+            await AuthFirebaseServices().signInWithGoogle();
 
-            if (result != null) {
-              emit(AuthSuccesGoogle());
-            } else {
-              emit(
-                const AuthFailed(
-                  'Google sign in failed',
-                ),
-              );
-            }
+            emit(
+              AuthSuccesGoogle(),
+            );
           } catch (e) {
             emit(
               AuthFailed(
                 e.toString(),
-              ),
-            );
-          }
-        }
-        if (event is SendOtpEvent) {
-          try {
-            await AuthFirebaseServices().verifyPhoneNumber(
-              phoneNumber: event.phoneNumber,
-              codeSent: (String verificationId) {
-                emit(
-                  OtpSentState(
-                    verificationId: verificationId,
-                  ),
-                );
-              },
-              verificationCompleted: (PhoneAuthCredential credential) async {
-                await FirebaseAuth.instance.signInWithCredential(credential);
-                emit(PhoneAuthSuccess());
-              },
-              verificationFailed: (FirebaseAuthException e) {
-                emit(
-                  PhoneAuthError(
-                    error: e.message ?? 'Verification Failed',
-                  ),
-                );
-              },
-              codeAutoRetrievalTimeout: (String verificationId) {},
-            );
-          } catch (e) {
-            emit(
-              PhoneAuthError(
-                error: "Error Verifiying Phone Number: $e",
               ),
             );
           }

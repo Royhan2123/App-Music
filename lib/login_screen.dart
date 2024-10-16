@@ -1,10 +1,7 @@
-import 'package:application_music/bloc/auth_bloc/auth_bloc.dart';
-import 'package:application_music/model/login_models.dart';
 import 'package:application_music/register_screen.dart';
 import 'package:application_music/screen/bottom_navigation.dart';
 import 'package:application_music/style/stylesheet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -134,67 +131,78 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 20,
                         ),
                         Center(
-                          child: BlocConsumer<AuthBloc, AuthState>(
-                            listener: (context, state) {
-                              if (state is AuthSucces) {
-                                Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const BottomNavigation(),
-                                  ),
-                                  (route) => false,
-                                );
-                              } else if (state is AuthFailed) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      "Email dan Password yang kamu masukkan salah",
-                                    ),
-                                    backgroundColor: Colors.red,
-                                  ),
-                                );
-                              }
-                            },
-                            builder: (context, state) {
-                              if (state is AuthLoading) {
-                                return const Center(
-                                  child: CircularProgressIndicator(),
-                                );
-                              }
-                              return ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blue,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                      15,
-                                    ),
-                                  ),
-                                  minimumSize: const Size(
-                                    double.infinity,
-                                    45,
-                                  ),
+                          child:
+                              // BlocConsumer<AuthBloc, AuthState>(
+                              //   listener: (context, state) {
+                              //     if (state is AuthSucces) {
+                              //       Navigator.pushAndRemoveUntil(
+                              //         context,
+                              //         MaterialPageRoute(
+                              //           builder: (context) =>
+                              //               const BottomNavigation(),
+                              //         ),
+                              //         (route) => false,
+                              //       );
+                              //     } else if (state is AuthFailed) {
+                              //       ScaffoldMessenger.of(context).showSnackBar(
+                              //         const SnackBar(
+                              //           content: Text(
+                              //             "Email dan Password yang kamu masukkan salah",
+                              //           ),
+                              //           backgroundColor: Colors.red,
+                              //         ),
+                              //       );
+                              //     }
+                              //   },
+                              //   builder: (context, state) {
+                              //     if (state is AuthLoading) {
+                              //       return const Center(
+                              //         child: CircularProgressIndicator(),
+                              //       );
+                              //     }
+                              //     return
+                              ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                  15,
                                 ),
-                                onPressed: () {
-                                  context.read<AuthBloc>().add(
-                                        AuthLogin(
-                                          LoginModels(
-                                            email: txtEmail.text,
-                                            password: txtPassword.text,
-                                          ),
-                                        ),
-                                      );
-                                },
-                                child: Text(
-                                  "Login",
-                                  style: txtWhite,
+                              ),
+                              minimumSize: const Size(
+                                double.infinity,
+                                45,
+                              ),
+                            ),
+                            onPressed: () {
+                              // context.read<AuthBloc>().add(
+                              //       AuthLogin(
+                              //         LoginModels(
+                              //           email: txtEmail.text,
+                              //           password: txtPassword.text,
+                              //         ),
+                              //       ),
+                              //     );
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const BottomNavigation(),
                                 ),
+                                (route) => false,
                               );
                             },
+                            child: Text(
+                              "Login",
+                              style: txtWhite,
+                            ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
+                          //     },
+                          //   ),
+                          // ),
+                          // const SizedBox(
+                          //   height: 10,
+                          // ),
                         ),
                       ],
                     ),

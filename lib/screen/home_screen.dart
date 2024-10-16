@@ -1,5 +1,6 @@
 import 'package:application_music/bloc/user_bloc/user_bloc.dart';
 import 'package:application_music/style/stylesheet.dart';
+import 'package:application_music/widget/card_feature_today.dart';
 import 'package:application_music/widget/card_relax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -227,46 +228,11 @@ class _ForYouState extends State<ForYou> {
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 16,
-                ),
-                width: 280,
-                height: 140,
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 16,
-                ),
-                width: 280,
-                height: 140,
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                ),
-              ),
-              Container(
-                width: 280,
-                height: 140,
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          child: Row(children: [
+            CardFeatureToday(),
+            CardFeatureToday(),
+            CardFeatureToday(),
+          ]),
         ),
         const SizedBox(
           height: 40,

@@ -1,4 +1,5 @@
 import 'package:application_music/bloc/auth_bloc/auth_bloc.dart';
+import 'package:application_music/bloc/storage_bloc/storage_bloc.dart';
 import 'package:application_music/bloc/user_bloc/user_bloc.dart';
 import 'package:application_music/firebase_options.dart';
 import 'package:application_music/screen/splash_screen.dart';
@@ -28,6 +29,9 @@ class MainActivity extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => UserBloc(),
+        ),
+        BlocProvider(
+          create: (context) => StorageBloc(),
         ),
       ],
       child: const MaterialApp(
