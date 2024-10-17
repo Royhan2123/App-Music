@@ -1,8 +1,10 @@
 import 'package:application_music/bloc/storage_bloc/storage_bloc.dart';
 import 'package:application_music/bloc/user_bloc/user_bloc.dart';
 import 'package:application_music/model/featuring_today_models.dart';
+import 'package:application_music/model/recently_played_models.dart';
 import 'package:application_music/style/stylesheet.dart';
 import 'package:application_music/widget/card_feature_today.dart';
+import 'package:application_music/widget/card_recently_played.dart';
 import 'package:application_music/widget/card_relax.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -247,14 +249,16 @@ class _ForYouState extends State<ForYou> {
                   }).toList(),
                 );
               } else if (state is StorageFailed) {
-      return Text(
-        'Failed to load data: ${state.error}',
-        style: const TextStyle(color: Colors.red),
-      );
-    }
-    return const Center(
-      child: Text("No data available."),
-    );
+                return Text(
+                  'Failed to load data: ${state.error}',
+                  style: const TextStyle(color: Colors.red),
+                );
+              }
+              return const Center(
+                child: Text(
+                  "No data available.",
+                ),
+              );
             },
           ),
         ),
@@ -284,84 +288,31 @@ class _ForYouState extends State<ForYou> {
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 16,
-                ),
-                width: 120,
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    16,
+          child: BlocBuilder<StorageBloc, StorageState>(
+            builder: (context, state) {
+              if (state is StorageSucces) {
+                return Row(
+                  children: List.generate(
+                    state.recentlyPlayed.name!.length,
+                    (index) {
+                      return CardRecentlyPlayed(
+                        recently: RecentlyPlayedModels(
+                          name: [
+                            state.recentlyPlayed.name![index],
+                          ],
+                          image: [
+                            state.recentlyPlayed.image![index],
+                          ],
+                        ),
+                      );
+                    },
                   ),
-                  color: Colors.grey,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 16,
-                ),
-                width: 120,
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                  color: Colors.grey,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 16,
-                ),
-                width: 120,
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                  color: Colors.grey,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 16,
-                ),
-                width: 120,
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                  color: Colors.grey,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 16,
-                ),
-                width: 120,
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                  color: Colors.grey,
-                ),
-              ),
-              Container(
-                width: 120,
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                  color: Colors.grey,
-                ),
-              ),
-            ],
+                );
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
           ),
         ),
         const SizedBox(
