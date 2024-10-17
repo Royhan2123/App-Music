@@ -12,7 +12,7 @@ final class StorageInitial extends StorageState {}
 final class StorageLoading extends StorageState {}
 
 final class StorageSucces extends StorageState {
-  final List<FeaturingTodayModels> featuring;
+  final FeaturingTodayModels featuring;
 
   const StorageSucces(
     this.featuring,

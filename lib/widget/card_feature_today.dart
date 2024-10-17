@@ -1,8 +1,11 @@
+import 'package:application_music/model/featuring_today_models.dart';
 import 'package:flutter/material.dart';
 
 class CardFeatureToday extends StatelessWidget {
+  final FeaturingTodayModels featuring;
   const CardFeatureToday({
     super.key,
+    required this.featuring,
   });
 
   @override
@@ -20,7 +23,7 @@ class CardFeatureToday extends StatelessWidget {
         ),
         image: DecorationImage(
           image: NetworkImage(
-            '',
+            featuring.images!.first,
           ),
           fit: BoxFit.cover,
         ),

@@ -15,16 +15,16 @@ class StorageBloc extends Bloc<StorageEvent, StorageState> {
             StorageLoading(),
           );
           final FeaturingTodayModels featuring =
-              await StorageFirebaseServices().getFeaturingToday();
+              await StorageFirebaseServices().getFeaturingImages();
 
           emit(
-            StorageSucces(
-              [
-                featuring,
-              ],
-            ),
+            StorageSucces(featuring),
           );
         } catch (e) {
+          // ignore: avoid_print
+          print(
+            "Error get data : $e",
+          );
           emit(
             StorageFailed(
               e.toString(),
