@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen>
       setState(() {});
     });
     context.read<StorageBloc>().add(
-          FetchStorageEvent(),
+          GetFeaturingToday(),
         );
   }
 

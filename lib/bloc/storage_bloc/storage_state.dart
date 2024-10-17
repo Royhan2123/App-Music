@@ -13,14 +13,17 @@ final class StorageLoading extends StorageState {}
 
 final class StorageSucces extends StorageState {
   final FeaturingTodayModels featuring;
+  final RecentlyPlayedModels recentlyPlayed;
 
   const StorageSucces(
     this.featuring,
+    this.recentlyPlayed,
   );
 
   @override
   List<Object> get props => [
         featuring,
+        recentlyPlayed,
       ];
 }
 

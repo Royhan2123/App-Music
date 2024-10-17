@@ -8,4 +8,5 @@ sealed class StorageEvent extends Equatable {
 }
 
 
-final class FetchStorageEvent extends StorageEvent {}
+final class GetFeaturingToday extends StorageEvent {}
+final class GetRecentlyPlayed extends StorageEvent {}
