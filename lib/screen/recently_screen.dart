@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:application_music/model/recently_played_models.dart';
 import 'package:application_music/style/stylesheet.dart';
 import 'package:flutter/material.dart';
