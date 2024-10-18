@@ -1,4 +1,5 @@
 import 'package:application_music/model/recently_played_models.dart';
+import 'package:application_music/screen/recently_screen.dart';
 import 'package:flutter/material.dart';
 
 class CardRecentlyPlayed extends StatelessWidget {
@@ -17,7 +18,16 @@ class CardRecentlyPlayed extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RecentlyScreen(
+                    recently: recently,
+                  ),
+                ),
+              );
+            },
             child: Container(
               width: 150,
               height: 150,
