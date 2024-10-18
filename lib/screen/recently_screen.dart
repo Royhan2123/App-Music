@@ -127,7 +127,7 @@ class _RecentlyScreenState extends State<RecentlyScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Billie Ellish',
+              widget.recently.artist!.first,
               style: txtBlack3.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,

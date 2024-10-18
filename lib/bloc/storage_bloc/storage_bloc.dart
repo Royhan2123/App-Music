@@ -28,10 +28,6 @@ class StorageBloc extends Bloc<StorageEvent, StorageState> {
             ),
           );
         } catch (e) {
-          // ignore: avoid_print
-          print(
-            "Error get data : $e",
-          );
           emit(
             StorageFailed(
               e.toString(),

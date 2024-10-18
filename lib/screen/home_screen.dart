@@ -303,6 +303,12 @@ class _ForYouState extends State<ForYou> {
                           image: [
                             state.recentlyPlayed.image![index],
                           ],
+                          artist: [
+                            state.recentlyPlayed.artist![index],
+                          ],
+                          deskripsi: [
+                            state.recentlyPlayed.deskripsi![index],
+                          ],
                         ),
                       );
                     },
