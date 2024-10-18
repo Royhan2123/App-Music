@@ -23,6 +23,7 @@ class _RecentlyScreenState extends State<RecentlyScreen> {
         body: ListView(
           children: [
             header(),
+            body(),
           ],
         ),
       ),
@@ -138,11 +139,42 @@ class _RecentlyScreenState extends State<RecentlyScreen> {
             ),
             Text(
               widget.recently.name!.first,
-              style: txtBlack,
+              style: txtWhite.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ],
         ),
       ],
+    );
+  }
+
+  Widget body() {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 20,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Deskripsi",
+            style: txtBlack,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            widget.recently.deskripsi!.first,
+            style: txtBlack2.copyWith(
+              fontSize: 15,
+            ),
+            textAlign: TextAlign.justify,
+          ),
+        ],
+      ),
     );
   }
 }
