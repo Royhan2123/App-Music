@@ -309,6 +309,9 @@ class _ForYouState extends State<ForYou> {
                           deskripsi: [
                             state.recentlyPlayed.deskripsi![index],
                           ],
+                          music: [
+                            state.recentlyPlayed.music![index],
+                          ],
                         ),
                       );
                     },

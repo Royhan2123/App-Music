@@ -3,12 +3,14 @@ class RecentlyPlayedModels {
   final List<String>? name;
   final List<String>? artist;
   final List<String>? deskripsi;
+  final List<String>? music;
 
   const RecentlyPlayedModels({
     this.image,
     this.name,
     this.artist,
     this.deskripsi,
+    this.music,
   });
 
   factory RecentlyPlayedModels.fromJson(Map<String, dynamic> json) {
@@ -24,6 +26,9 @@ class RecentlyPlayedModels {
       ),
       deskripsi: List<String>.from(
         json['deskripsi'] ?? [],
+      ),
+      music: List<String>.from(
+        json['music'] ?? [],
       ),
     );
   }
