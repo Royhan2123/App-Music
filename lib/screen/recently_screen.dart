@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:application_music/model/recently_played_models.dart';
+import 'package:application_music/screen/music_screen.dart';
 import 'package:application_music/style/stylesheet.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +24,109 @@ class _RecentlyScreenState extends State<RecentlyScreen> {
           children: [
             header(),
             body(),
+            cardMusic(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget cardMusic() {
+    return Container(
+      margin: const EdgeInsets.all(
+        20,
+      ),
+      padding: const EdgeInsets.all(
+        15,
+      ),
+      width: double.infinity,
+      height: 100,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(
+          15,
+        ),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black,
+            blurRadius: 5,
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 75,
+            height: 75,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black,
+              image: DecorationImage(
+                image: NetworkImage(
+                  widget.recently.image!.first,
+                ),
+                fit: BoxFit.cover,
+              ),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 1,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.recently.artist!.first,
+                style: txtBlack.copyWith(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                widget.recently.name!.first,
+                style: txtBlack.copyWith(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+          const Spacer(),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: const CircleBorder(),
+              minimumSize: const Size(
+                60,
+                60,
+              ),
+              backgroundColor: Colors.grey.shade200,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (route) => MusicScreen(
+                    recently: widget.recently,
+                  ),
+                ),
+              );
+            },
+            child: const Icon(
+              Icons.play_arrow_rounded,
+              size: 25,
+              color: Colors.black,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -151,9 +253,11 @@ class _RecentlyScreenState extends State<RecentlyScreen> {
 
   Widget body() {
     return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 15,
-        vertical: 20,
+      margin: const EdgeInsets.only(
+        left: 15,
+        right: 15,
+        top: 15,
+        bottom: 10,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
