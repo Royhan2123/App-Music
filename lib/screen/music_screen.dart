@@ -17,22 +17,42 @@ class _MusicScreenState extends State<MusicScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: InkWell(
-            onTap: () {
-              Navigator.pop(
-                context,
-              );
-            },
-            child: const Icon(
-              Icons.arrow_back,
-            ),
-          ),
-          elevation: 8,
-          shadowColor: Colors.black,
+        body: ListView(
+          children: [
+            head(),
+            body(),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget head() {
+    return AppBar(
+      backgroundColor: Colors.black,
+      leading: const Icon(
+        Icons.arrow_back_ios_rounded,
+        size: 25,
+        color: Colors.white,
+      ),
+      title: Padding(
+        padding: const EdgeInsets.only(
+          left: 15,
+        ),
+        child: Text(
+          widget.recently.artist!.first,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget body() {
+    return Container(
+
     );
   }
 }
