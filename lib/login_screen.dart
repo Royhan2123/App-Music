@@ -1,5 +1,4 @@
 import 'package:application_music/bloc/auth_bloc/auth_bloc.dart';
-import 'package:application_music/model/login_models.dart';
 import 'package:application_music/register_screen.dart';
 import 'package:application_music/screen/bottom_navigation.dart';
 import 'package:application_music/style/stylesheet.dart';
@@ -180,14 +179,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  context.read<AuthBloc>().add(
-                                        AuthLogin(
-                                          LoginModels(
-                                            email: txtEmail.text,
-                                            password: txtPassword.text,
-                                          ),
-                                        ),
-                                      );
+                                  // context.read<AuthBloc>().add(
+                                  //       AuthLogin(
+                                  //         LoginModels(
+                                  //           email: txtEmail.text,
+                                  //           password: txtPassword.text,
+                                  //         ),
+                                  //       ),
+                                  //     );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const BottomNavigation(),
+                                    ),
+                                  );
                                 },
                                 child: Text(
                                   "Login",
