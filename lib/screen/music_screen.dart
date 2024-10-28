@@ -33,18 +33,21 @@ class _MusicScreenState extends State<MusicScreen>
 
     _audioPlayer = AudioPlayer();
 
-    // Update the UI when the player position changes
     _audioPlayer.onPositionChanged.listen((position) {
       setState(() {
         currentPosition = position;
       });
     });
 
-    // Update total duration of the song
     _audioPlayer.onDurationChanged.listen((duration) {
       setState(() {
         totalDuration = duration;
       });
+    });
+
+    // Preload audio before playing
+    _audioPlayer.setSourceUrl(widget.recently.music!.first).then((_) {
+      playMusic();
     });
   }
 
@@ -136,11 +139,12 @@ class _MusicScreenState extends State<MusicScreen>
           const SizedBox(height: 20),
           Text(
             widget.recently.name!.first,
-            style: txtBlack,
+            style: txtBlack.copyWith(
+              fontSize: 20,
+              color: Colors.black,
+            ),
           ),
           const SizedBox(height: 20),
-
-          // Slider for audio position
           Slider(
             value: currentPosition.inSeconds.toDouble(),
             max: totalDuration.inSeconds.toDouble(),
@@ -160,8 +164,6 @@ class _MusicScreenState extends State<MusicScreen>
             ],
           ),
           const SizedBox(height: 20),
-
-          // Play/Pause button
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
