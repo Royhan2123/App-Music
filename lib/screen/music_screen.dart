@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class MusicScreen extends StatefulWidget {
   final RecentlyPlayedModels recently;
+
   const MusicScreen({
     super.key,
     required this.recently,
@@ -12,7 +13,25 @@ class MusicScreen extends StatefulWidget {
   State<MusicScreen> createState() => _MusicScreenState();
 }
 
-class _MusicScreenState extends State<MusicScreen> {
+class _MusicScreenState extends State<MusicScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 10), 
+      vsync: this,
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose(); 
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,9 +55,7 @@ class _MusicScreenState extends State<MusicScreen> {
         color: Colors.white,
       ),
       title: Padding(
-        padding: const EdgeInsets.only(
-          left: 15,
-        ),
+        padding: const EdgeInsets.only(left: 15),
         child: Text(
           widget.recently.artist!.first,
           style: const TextStyle(
@@ -51,8 +68,27 @@ class _MusicScreenState extends State<MusicScreen> {
   }
 
   Widget body() {
-    return Container(
-
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          RotationTransition(
+            turns: _controller,
+            child: Container(
+              width: double.infinity,
+              height: 500,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(widget.recently.image!.first),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
